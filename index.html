@@ -79,8 +79,87 @@
         console.log(findmissing([1, 2, 4, 5], 5)); // Output: 3
 
         // 6.Check Whether Text Is a Palindrome
-        
-        
+        function isPalindrome(str) 
+        {
+            for (let i = 0; i < str.length / 2; i++) 
+            {
+                if (str[i] !== str[str.length - 1 - i]) 
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        console.log(isPalindrome("ELE")); // Output: true
+        console.log(isPalindrome("hello")); // Output: false
+
+
+        // 7.Find the Highest Product Price
+        function highestprice(arr) 
+        {
+            let highest = -Infinity;
+            for (let i = 0; i < arr.length; i++) 
+            {
+                if (arr[i] > highest) 
+                {
+                    highest = arr[i];
+                }
+            }
+            return highest;
+        }
+        console.log(highestprice([100, 200, 300, 400])); // Output: 400
+
+        // 8.Search for a Product ID
+        function findmissingid(arr, n)
+        {
+            for (let i = 1; i <= n; i++) {
+                if (arr[i]==n)
+                {
+                    return i;
+
+                }
+            }
+        }
+        console.log(findmissingid([1, 2, 4, 5], 5)); // Output: 3
+
+        // 9.Move All Zeros to the End
+        function movezeros(arr) 
+        {
+            let zeros = [];
+            let nonZeros = [];
+            for (let i = 0; i < arr.length; i++) 
+            {
+                if (arr[i] === 0) 
+                {
+                    zeros.push(0);
+                } else {
+                    nonZeros.push(arr[i]);
+                }
+            }
+            return nonZeros.concat(zeros);
+        }
+        console.log(movezeros([1, 0, 2, 0, 3])); // Output: [1, 2, 3, 0, 0]
+
+        // 10. Filter Products by Price
+        function filterbyprice(object,maxprice)
+        {
+            let filteredproducts={}
+            for (let i = 0; i < object.length; i++) 
+            {
+                if (object[i].price <= maxprice) 
+                {
+                    filteredproducts[object[i].id] = object[i];
+                }
+            }
+            return filteredproducts;
+        }
+        console.log(filterbyprice([{id: 1, name: "monitor", price: 5000}, 
+        {id: 2, name: "keyboard", price: 200}, 
+        {id: 3, name: "mouse", price: 300}], 
+        1000)); 
+        // Output: {2: {id: 2, name: "keyboard", price: 200}, 3: {id: 3, name: "mouse", price: 300}}
     </script>
 </body>
 </html>
